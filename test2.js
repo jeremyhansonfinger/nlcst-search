@@ -1,8 +1,6 @@
 var search = require('nlcst-search');
 var toString = require('nlcst-to-string');
 
-var dashes = true;
-
 var tree = {
     'type': 'SentenceNode',
     'children': [
@@ -64,19 +62,19 @@ search(tree, ["block-level"], function (nodes) {
     console.log(toString(nodes) + ' test5');
 });
 
-// Strip out hyphens. Should return whole node b/c blocklevel === blocklevel
+// Strip out dashes. Should return whole node b/c blocklevel === blocklevel
 
 search(tree, ['block-level'], function (nodes) {
     console.log(toString(nodes) + ' test6');
 }, false, true);
-// Don't strip out hyphens. Should return whole node b/c block-level === block-level
+// Don't strip out dashes. Should return whole node b/c block-level === block-level
 
 search(tree, ['blocklevel'], function (nodes) {
     console.log(toString(nodes) + ' test7');
 });
-// Strip out hyphens. Should return whole node b/c blocklevel === blocklevel
+// Strip out dashes. Should return whole node b/c blocklevel === blocklevel
 
 search(tree, ["blocklevel"], function (nodes) {
     console.log(toString(nodes) + ' test8');
 }, false, true);
-// Don't strip out hyphens. Should not return anything b/c blocklevel !== block-level
+// Don't strip out dashes. Should not return anything b/c blocklevel !== block-level
