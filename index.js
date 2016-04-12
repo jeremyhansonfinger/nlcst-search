@@ -200,10 +200,6 @@ function search(tree, phrases, handler, options) {
     visit(tree, T_WORD, visitor);
 }
 
-
-
-
-
 /*
  * Expose.
  */
