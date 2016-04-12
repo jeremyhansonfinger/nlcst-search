@@ -190,6 +190,19 @@ var tree = {
                     'value': 'hell'
                 }
             ]
+        },
+        {
+            'type': 'WhiteSpaceNode',
+            'value': ' '
+        },
+        {
+            'type': 'WordNode',
+            'children': [
+                {
+                    'type': 'TextNode',
+                    'value': 'blocklevel'
+                }
+            ]
         }
     ]
 };
@@ -199,7 +212,7 @@ var tree = {
  */
 
 test('search(tree, patterns, handle)', function (t) {
-    t.plan(42);
+    t.plan(43);
 
     t.throws(
         function () {
@@ -305,4 +318,9 @@ test('search(tree, patterns, handle)', function (t) {
     }, {
         'allowLiterals': true
     });
+
+    search(tree, ['block-level'], function () {
+        t.pass('should find dashes when given `allowDashes`');
+    }, false, true);
+
 });
